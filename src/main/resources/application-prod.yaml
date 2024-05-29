@@ -1,0 +1,14 @@
+spring:
+    application:
+        name: board
+    datasource:
+        url: jdbc:mysql://mymysql:3306/devops?serverTimezone=Asia/Seoul
+        username: ${username}
+        password: ${password}
+    jpa:
+        hibernate:
+            ddl-auto: create
+        show-sql: true
+        properties:
+            hibernate:
+                format_sql: true

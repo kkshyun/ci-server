@@ -14,7 +14,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class BoardServiceImpl implements BoardService{
     private final BoardRepository boardRepository;
-//
+///////
     @Override
     public void insertBoard(InsertBoardRequest insertBoardRequest) {
         boardRepository.save(insertBoardRequest.toEntity());
@@ -32,5 +32,12 @@ public class BoardServiceImpl implements BoardService{
     @Override
     public List<Board> getAllBoards() {
         return boardRepository.findAll();
+    }
+
+    @Override
+    public void deleteById(Long id) {
+        Optional<Board> byId = boardRepository.findById(id);
+        byId.orElseThrow(IllegalArgumentException::new);
+        boardRepository.deleteById(id);
     }
 }
